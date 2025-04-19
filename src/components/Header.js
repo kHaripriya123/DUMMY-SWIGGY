@@ -10,10 +10,11 @@ const [btnNameReact , setBtnNameReact] = useState("Login");
 const onlineStatus = useOnlineStatus();
 const {loggedInUser} = useContext(UserContext);//loggedInUser is  from context//useContext is a hook
 const cartItems = useSelector((store) => store.cart.items);
+console.log(cartItems);
     return (
         <div className="flex justify-between bg-blue-100 shadow-lg sm:bg-yellow-50 lg:bg-green-50"> 
         {/* //if ur device is larger than sm make header yellow, if ur device is greater than lg make header color green device can be ex-mobile phone*/}
-            <div className="logocontainer">
+            <div className="logo-container">
                 <img className="w-20" src= {LOGO_URL}/>
             </div>
             <div className="flex items-center">
@@ -35,7 +36,8 @@ const cartItems = useSelector((store) => store.cart.items);
                            <Link to = "/grocery"> Grocery </Link>
                         </li>
                     <li className="px-4 font-bold text-xl">
-                        Cart-({cartItems.length} items)
+                       
+                    <Link to = "/Cart"> Cart-({cartItems.length}items)</Link>
                         </li>
                     
                 

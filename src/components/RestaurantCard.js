@@ -7,6 +7,7 @@ const RestaurantCard = (props) => {   // otherway of writing - const RestaurantC
     // prop is a js obj over here
    
     const { resData } = props;
+    console.log(resData);
     const {cloudinaryImageId,name,cuisines,avgRating,costForTwo} = resData?.info;// this is optional chaining
     const {loggedInUser} = useContext(userContext);
     return (

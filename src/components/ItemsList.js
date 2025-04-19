@@ -1,14 +1,16 @@
+
 import { useDispatch } from "react-redux";
 import { CDN_URL } from "../utils/constants";
 import { addItem } from "../utils/cartSlice";
-
 const ItemsList = ({items}) => {
-    const dispatch = useDispatch();
+   
+const dispatch = useDispatch();
+//useDispatch() is a hook
 
-    const handleAddItem = () => {
-        dispatch(addItem("pizza"));
-    };
+const handleAddItem = (items) => {
+    dispatch(addItem(items));
 
+};
     return (
         <div>
      {items.map((items) => (
@@ -26,8 +28,8 @@ const ItemsList = ({items}) => {
     <div  className="w-3/12 p-4">
     <div className="absolute">
     <button className="p-2 mx-16 rounded-lg bg-white shadow-lg" 
-    onClick={handleAddItem}> Add + 
-    </button>
+    onClick={() => handleAddItem(items)}> Add + </button>
+    
     </div>
     <img src={CDN_URL + items.card.info.imageId} className="w-full"/> 
     

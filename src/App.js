@@ -35,15 +35,12 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import UserContext from "./utils/UserContext";
 import {Provider} from "react-redux";
 import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 
-//import Grocery from "./components/Grocery";
-//const styleCard = {              //this is called inline style, this is a js obj(not preferred way to write)
-//backgroundColor : "#f0f0f0",
-//  }
-//
-const Grocery = lazy(() => import("./components/Grocery"));
 
-const About = lazy(() => import("./components/About"));
+// const Grocery = lazy(() => import("./components/Grocery"));
+
+// const About = lazy(() => import("./components/About"));
 
 const AppLayout = () => {
     const [userName, setUserName] = useState();
@@ -57,7 +54,9 @@ const AppLayout = () => {
     );
 
     return (
-        <Provider store = {appStore}>
+        //providing store to our app
+        <Provider store = {appStore}> 
+        {/* passing the appStore as props */}
         <UserContext.Provider value={{loggedInUser: userName, setUserName}}>
         <div className="app">
             
@@ -94,13 +93,17 @@ const appRouter = createBrowserRouter([
                 path: "/contact",
                 element: <Contact />,
             },
+            // {
+            //     path: "/grocery",
+            //     element: (
+            //         <Suspense fallback={<h1>loading ...</h1>}>
+            //             <Grocery />
+            //         </Suspense>
+            //     ),
+            // },
             {
-                path: "/grocery",
-                element: (
-                    <Suspense fallback={<h1>loading ...</h1>}>
-                        <Grocery />
-                    </Suspense>
-                ),
+                path : "/Cart",
+                element : <Cart/>
             },
             {
                 path: "/restaurants/:resId",
