@@ -41,7 +41,7 @@ console.log(cartItems);
                         </li>
                     
                 
-                <button 
+                {/* <button 
                 className = "login"
                   
                 onClick = {() => {
@@ -54,7 +54,7 @@ console.log(cartItems);
                 
                 {btnNameReact}
                     
-                </button>
+                </button> */}
                 <li className="px-4 font-bold"> {loggedInUser}</li>
                 </ul>
             </div>
